@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from core.models import *
 
-# def home(request):
-    # product = Product.objects.all()
-    # return render(request, 'index.html')
+def home(request):
+    
+    return render(request, 'index.html')
