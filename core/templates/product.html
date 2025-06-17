@@ -52,8 +52,8 @@
             <div class="all-colors">
               {% for color in product.color.all %}
               <div
-                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #f2f2f2; background-color: green;">
-              {{color}}
+                style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #f2f2f2; background-color:{{color.code}};">
+               
               </div>
             {% endfor %}
             </div>
@@ -62,18 +62,11 @@
             <!-- <span style="font-size: 14px; color: #343a40; margin-top: 5px;">Yaddash:</span> -->
             <div class="storages-div" style="display: flex;">
               <p style="font-size: 14px; padding-top: 5px; margin-right: 22px;">Yaddaş: </p>
+              {% for storage in product.storage.all  %}
               <div class="storages"
                 style="width: 76px; text-align: center; padding-top: 5px; height: 36px; background-color: #4F4F4F; border-radius: 8px; border: none; margin-right: 22px; color: white;">
-                256GB</div>
-              <div class="storages"
-                style="width: 76px; text-align: center; padding-top: 5px; height: 36px; background-color: #F2F2F2; border-radius: 8px; border: none; margin-right: 22px;">
-                128GB</div>
-              <div class="storages"
-                style="width: 76px; text-align: center; padding-top: 5px; height: 36px; background-color: #F2F2F2; border-radius: 8px; border: none; margin-right: 22px;">
-                64GB</div>
-              <div class="storages"
-                style="width: 76px; text-align: center; padding-top: 5px; height: 36px; background-color: #F2F2F2; border-radius: 8px; border: none; margin-right: 22px;">
-                32GB</div>
+                {{storage }}  </div>
+             {% endfor %}
             </div>
           </div>
 
