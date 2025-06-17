@@ -43,25 +43,19 @@
           </div>
           <div class="price">
             <p class="card-price" style="height: 25px; font-size: 20px; margin-top: 20px;"> <span
-                style="font-size: 16px; color: gray; text-decoration: line-through; margin-right: 5px;">2400$</span>
-              2900$</p>
+                style="font-size: 16px; color: gray; text-decoration: line-through; margin-right: 5px;">$ {{product.price}}</span>
+              ${{product.price}}</p>
           </div>
 
           <div class="colors">
             <span style="font-size: 14px; color: #343a40; margin-top: 5px;">Rəng:</span>
             <div class="all-colors">
+              {% for color in product.color.all %}
               <div
                 style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #f2f2f2; background-color: green;">
+              {{color}}
               </div>
-              <div
-                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #f2f2f2; background-color: red;">
-              </div>
-              <div
-                style="width: 32px; height: 32px; border: 2px solid #f2f2f2; background-color: blue; border-radius: 100px;">
-              </div>
-              <div
-                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #f2f2f2; background-color: purple;">
-              </div>
+            {% endfor %}
             </div>
           </div>
           <div class="colors" style="border-bottom: 2px solid #F2F2F2; padding-bottom: 20px; margin-top: 10px;">
