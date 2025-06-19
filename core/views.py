@@ -15,3 +15,14 @@ def product(request, id):
         'product': product
     }
     return render(request, 'product.html', context)
+
+def about(request):
+    return render(request, 'about-us.html')
+
+
+def list(request):
+    products = Product.objects.all()
+    context = {
+        'products': products
+    }
+    return render(request, 'list.html', context)
