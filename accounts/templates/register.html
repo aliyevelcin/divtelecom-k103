@@ -21,28 +21,42 @@
                             </div>
                         </div>
                         <p style="color: #bdbdbd; text-align: center;">və ya</p>
-                        <form action="">
+                        <form action="" method="post" enctype="multipart/form-data" >
                             <div class="reg-inp-cont">
-                                <label for="name">Ad, Soyad</label>
-                                <input class="reg-inp" type="text" name="name" placeholder="Adınızı və soyadınızı daxil edin">
+                                <label for="name">Ad </label>
+                                {{form.first_name}}
+                                {{form.first_name.errors}}
                             </div>
                             <div class="reg-inp-cont">
-                                <label for="name">E-mail</label>
-                                <input class="reg-inp" type="text" name="name" placeholder="nümunə@gmail.com">
+                                <label for="name">Soyad</label>
+                                {{form.last_name}}
+                                {{form.last_name.errors}}
                             </div>
                             <div class="reg-inp-cont">
-                                <label for="name">Mobil nömrə</label>
-                                <input class="reg-inp" type="text" name="name" placeholder="000-00-00">
+                                <label for="name">Username</label>
+                                {{form.username}}
+                                {{form.username.errors}}
                             </div>
                             <div class="reg-inp-cont">
                                 <label for="name">Şifrə</label>
-                               <h1>salam</h1>
+                                {{form.password1}}
+                                {{form.password1.errors}}
                             </div>
                             <div class="reg-inp-cont">
                                 <label for="name">Şifrə təstiqi</label>
-                                <input class="reg-inp" type="text" name="name" placeholder="Şifrənizi təstiq edin">
+                                {{form.password2}}
+                                {{form.password2.errors}}
                             </div>
-
+                            <div class="reg-inp-cont">
+                                <label for="name">Istifadeci sekli</label>
+                                {{form.image}}
+                                {{form.image.errors}}
+                            </div>
+                             <div class="reg-inp-cont">
+                                <label for="name">Istifadeci sekli</label>
+                                {{form.image}}
+                                {{form.image.errors}}
+                            </div>
                             <div class="reg-inp-cont" style="flex-direction: row;">
                                 <input type="checkbox">
                                 <span style="margin-left: 5px;"><a href="">İstifadəçi şərtləri</a> ilə razıyam</span>
