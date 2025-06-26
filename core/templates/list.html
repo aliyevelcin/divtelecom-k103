@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
  {% block content %}
+ {% block css %}
+    <link rel="stylesheet" href="{% static 'css/checkboxes.css'%}" >
+{% endblock css %}
 
-  <hr style="background-color: #38ff87; margin-bottom: 0;">
-
+ 
   <div class="list-main">
     <div class="container list-cont">
         <div class="row">

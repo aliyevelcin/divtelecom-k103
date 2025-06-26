@@ -22,6 +22,7 @@
                         </div>
                         <p style="color: #bdbdbd; text-align: center;">və ya</p>
                         <form action="" method="post" enctype="multipart/form-data" >
+                            {% csrf_token %}
                             <div class="reg-inp-cont">
                                 <label for="name">Ad </label>
                                 {{form.first_name}}
@@ -38,6 +39,21 @@
                                 {{form.username.errors}}
                             </div>
                             <div class="reg-inp-cont">
+                                <label for="name">Istifadeci email</label>
+                                {{form.email}}
+                                {{form.email.errors}}
+                            </div>
+                             <div class="reg-inp-cont">
+                                <label for="name">Istifadeci sekli</label>
+                                {{form.image}}
+                                {{form.image.errors}}
+                            </div>
+                            <div class="reg-inp-cont">
+                                <label for="name">Istifadeci bio</label>
+                                {{form.bio}}
+                                {{form.bio.errors}}
+                            </div>
+                            <div class="reg-inp-cont">
                                 <label for="name">Şifrə</label>
                                 {{form.password1}}
                                 {{form.password1.errors}}
@@ -47,16 +63,9 @@
                                 {{form.password2}}
                                 {{form.password2.errors}}
                             </div>
-                            <div class="reg-inp-cont">
-                                <label for="name">Istifadeci sekli</label>
-                                {{form.image}}
-                                {{form.image.errors}}
-                            </div>
-                             <div class="reg-inp-cont">
-                                <label for="name">Istifadeci sekli</label>
-                                {{form.image}}
-                                {{form.image.errors}}
-                            </div>
+                           
+                             
+                             
                             <div class="reg-inp-cont" style="flex-direction: row;">
                                 <input type="checkbox">
                                 <span style="margin-left: 5px;"><a href="">İstifadəçi şərtləri</a> ilə razıyam</span>
