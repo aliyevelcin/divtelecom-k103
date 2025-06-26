@@ -5,9 +5,15 @@ from django.urls import reverse_lazy
 from accounts.forms import *
 from django.contrib.auth.views import *
 
-
 class RegisterView(CreateView):
-    model = User  
     template_name = 'register.html'
+    model = User
     form_class = RegisterForm
+    success_url = '/accounts/login/'
+   
+
+class LoginUser(LoginView):
+    template_name = 'login.html'
     success_url = '/'
+    form_class = LoginForm
+    model = User

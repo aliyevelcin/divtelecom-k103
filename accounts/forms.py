@@ -1,6 +1,6 @@
 from django import forms
 from accounts.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 
 class RegisterForm(UserCreationForm):
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'reg-inp', 'placeholder': 'Password'}))
@@ -16,4 +16,15 @@ class RegisterForm(UserCreationForm):
             'image': forms.FileInput(attrs={'class': 'reg-inp', 'placeholder': 'Image'}),
             'bio': forms.Textarea(attrs={'class': 'reg-inp', 'placeholder': 'bio'}),
             'email': forms.EmailInput(attrs={'class': 'reg-inp', 'placeholder': 'Email'}),
+        }
+
+
+class LoginForm(AuthenticationForm):
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'reg-inp', 'placeholder':'password'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'reg-inp', 'placeholder':'username'}) )
+    class Meta:
+        model = User
+        fields = ['username', 'password']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'reg-inp', 'placeholder': 'Username'}),
         }

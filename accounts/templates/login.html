@@ -21,15 +21,15 @@
                             </div>
                         </div>
                         <p style="color: #bdbdbd; text-align: center;">və ya</p>
-                        <form action="">
-                            
+                        <form action=""  method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
                             <div class="reg-inp-cont">
-                                <label for="name">E-mail</label>
-                                <input class="reg-inp" type="text" name="name" placeholder="nümunə@gmail.com">
+                                <label for="name">Username</label>
+                                {{form.username}}
                             </div>
                             <div class="reg-inp-cont">
                                 <label for="name">Şifrə</label>
-                                <input class="reg-inp" type="text" name="name" placeholder="Şifrənizi daxil edin">
+                                {{form.password}}
                             </div>
                             
 
@@ -55,3 +55,5 @@
                 </div>
             </div>
         </div>
+
+        {%  endblock  %}
