@@ -11,7 +11,16 @@
             </form>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#"><img src="https://muradaghazade.github.io/phones/img/person.svg" alt=""></a>
+              {% if request.user.is_authenticated %}
+              <div class="d-flex">
+
+                <a class="nav-link" href="#"><img src="https://muradaghazade.github.io/phones/img/person.svg" alt=""></a>
+                <a href=" "><button class="btn btn-block"  >Logout</button></a>
+              </div>
+              {% else %}
+              <a class="nav-link" href="{% url 'accounts:login' %}"><img src="https://muradaghazade.github.io/phones/img/person.svg" alt="">Login</a>
+              <a class="nav-link" href="{% url 'accounts:register' %}"><img src="https://muradaghazade.github.io/phones/img/person.svg" alt="">Register</a>
+              {% endif %}
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><img src="https://muradaghazade.github.io/phones/img/heart.svg" alt=""></a>
