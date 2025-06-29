@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-function staircase(n) {
-    for (let i = 1; i <= n; i++) {
-        const spaces = ' '.repeat(n - i);
-        const hashes = '#'.repeat(i);
-        console.log(spaces + hashes);
-    }
+
+function miniMaxSum(arr) {
+    const total = arr.reduce((sum, num) => sum + num, 0);
+    const min = Math.min(...arr);
+    const max = Math.max(...arr);
+    const minSum = total - max;
+    const maxSum = total - min;
+    console.log(`${minSum} ${maxSum}`);
 }
+
 
 <div class="register">
             <div class="container">
