@@ -26,3 +26,5 @@ def list(request):
         'products': products
     }
     return render(request, 'list.html', context)
+
+
