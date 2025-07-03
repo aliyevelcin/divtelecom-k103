@@ -41,9 +41,15 @@
             </div>
           </div>
           <div class="price">
+            {% if product.old_price > product.new_price %}
             <p class="card-price" style="height: 25px; font-size: 20px; margin-top: 20px;"> <span
-                style="font-size: 16px; color: gray; text-decoration: line-through; margin-right: 5px;">$ {{product.price}}</span>
-              ${{product.price}}</p>
+                style="font-size: 16px; color: gray; text-decoration: line-through; margin-right: 5px;">$ {{product.old_price}}</span>
+              ${{product.new_price}}</p>
+              <span>(-{{ product.discount_percent }}%)</span>
+              {% else %}
+                 <p class="card-price" style="height: 25px; font-size: 20px; margin-top: 20px;"> <span
+                style="font-size: 16px; color: gray; text-decoration: line-through; margin-right: 5px;">$ {{product.new_price}}</span>
+              {% endif %}
           </div>
 
           <div class="colors">

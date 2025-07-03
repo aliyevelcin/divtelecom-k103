@@ -3,7 +3,8 @@ from django.db import models
 class Product(models.Model):
     model = models.CharField(max_length=100)
     description = models.TextField()
-    price = models.DecimalField(decimal_places=2, max_digits=6)
+    old_price = models.DecimalField(decimal_places=2, max_digits=6, null=True, blank=True)
+    new_price = models.DecimalField(decimal_places=2, max_digits=6)
     brand = models.CharField(max_length=100)
     form_factor = models.CharField(max_length=100)
     operating_system = models.CharField(blank=True, max_length=100, null=True)
@@ -22,10 +23,12 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def discount_percent(self):
+        if self.old_price and self.old_price > self.new_price:
+            return round(100 - ((self.new_price / self.old_price) * 100))
+        return 0
 
-    class Meta:
-        verbose_name = 'Product'
-        verbose_name_plural = 'Products'
+  
     def __str__(self):
         return self.model
     
