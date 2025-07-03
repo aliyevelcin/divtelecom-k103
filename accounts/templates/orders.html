@@ -5,16 +5,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
+                        {% if request.user.is_authenticated %}
+
                     <div class="fav-links">
-                        <h3 style="color: #4f4f4f; font-size: 20px;">Profilim</h3>
+                        <div style="display: flex; align-items: center;">
+                            {% if request.user.image %}
+                            <img width="70px" height="70px" style="border-radius: 50%;" src="{{ request.user.image.url }}" alt="">
+                            {% else %}
+                            <img width="70px" height="70px" style="border-radius: 50%;" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="">
+                            {% endif %}
+                            <h3 style="color: #4f4f4f; font-size: 20px;margin-left: 20px;">{{ request.user.username }}</h3>
+                        </div>
                         <ul>
                             <li class="fav-item"><a style="color: #2DD06E;" href=""><img class="fav-img" src="https://muradaghazade.github.io/phones/img/shopping-cart-green.svg" alt="">Sifarişlərim</a></li>
                             <li class="fav-item"><a href=""><img class="fav-img" src="https://muradaghazade.github.io/phones/img/heart.svg" alt="">Favorilərim</a></li>
                             <li class="fav-item"><a href=""><img class="fav-img" src="https://muradaghazade.github.io/phones/img/person.svg" alt="">Şexsi melumatlar</a></li>
                             <li class="fav-item"><a href=""><img class="fav-img" src="https://muradaghazade.github.io/phones/img/pin.svg" alt="">Çatdırılma ünvanı</a></li>
-                            <li class="fav-item"><a href=""><img class="fav-img" src="https://muradaghazade.github.io/phones/img/log-out.svg" alt="">Çıxış</a></li>
+                            <li class="fav-item">
+
+
+                                <form action="{% url 'accounts:logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button style="border: none;outline: none;background-color: transparent;">
+
+                                        <a href=""><img class="fav-img" src="https://muradaghazade.github.io/phones/img/log-out.svg" alt="">Çıxış</a>
+                                    </button>
+                                </form>
+                       
+
+
+                            </li>
                         </ul>
                     </div>
+                     {% endif %}
                 </div>
                 <div class="col-md-9">
                     <div class="container">

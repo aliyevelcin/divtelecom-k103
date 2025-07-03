@@ -14,13 +14,16 @@
               {% if request.user.is_authenticated %}
               <div class="d-flex">
 
-                <a class="nav-link" href="#"><img src="https://muradaghazade.github.io/phones/img/person.svg" alt=""></a>
-                <a href=" "><button class="btn btn-block"  >Logout</button></a>
+                <a class="nav-link" href="{% url 'accounts:orders' request.user.id %}"><img src="https://muradaghazade.github.io/phones/img/person.svg" alt=""></a>
+                
               </div>
               {% else %}
-              <a class="nav-link" href="{% url 'accounts:login' %}"><img src="https://muradaghazade.github.io/phones/img/person.svg" alt="">Login</a>
-              <a class="nav-link" href="{% url 'accounts:register' %}"><img src="https://muradaghazade.github.io/phones/img/person.svg" alt="">Register</a>
-              {% endif %}
+              <div class="d-flex">
+
+                <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+                <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
+              </div>
+                {% endif %}
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><img src="https://muradaghazade.github.io/phones/img/heart.svg" alt=""></a>
