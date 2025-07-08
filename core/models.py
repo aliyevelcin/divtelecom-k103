@@ -27,7 +27,7 @@ class Product(models.Model):
         if self.old_price and self.old_price > self.new_price:
             return round(100 - ((self.new_price / self.old_price) * 100))
         return 0
-https://startersites.io/blocksy/product-reviews/
+ 
   
     def __str__(self):
         return self.model
