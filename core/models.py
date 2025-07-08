@@ -27,7 +27,7 @@ class Product(models.Model):
         if self.old_price and self.old_price > self.new_price:
             return round(100 - ((self.new_price / self.old_price) * 100))
         return 0
-
+https://startersites.io/blocksy/product-reviews/
   
     def __str__(self):
         return self.model
@@ -37,10 +37,7 @@ class ProductVersion(models.Model):
     product = models.ForeignKey('Product',related_name='product_versions',on_delete=models.CASCADE,db_index=True,null=True,blank=True,related_query_name='product_version') #product = models.ForeingKey(Product, on_delete = models.CASCADE,db_index = True,null=True,blank=True)
     color = models.CharField(max_length=100)
     storage = models.CharField(max_length=100)
-    quantity = models.IntegerField('Quantity',blank=True,null=False)
-    class Meta:
-        verbose_name = 'Product Version'
-        verbose_name_plural = 'Product Versions'
+    quantity = models.IntegerField('Quantity',blank=True,null=False) 
 
     def __str__(self):
         return self.color
@@ -53,9 +50,7 @@ class ProductVersion(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=100)
 
-    class Meta:
-        verbose_name = 'Category'
-        verbose_name_plural = 'Categories'
+ 
     def __str__(self):
         return self.title
 
@@ -65,9 +60,7 @@ class Storage(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    class Meta:
-        verbose_name = 'Storage'
-        verbose_name_plural = 'Storages'
+ 
     def __str__(self):
         return self.title
     
@@ -77,9 +70,7 @@ class Color(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        verbose_name = 'Color'
-        verbose_name_plural = 'Colors'
+ 
 
     def __str__(self):
         return f"{self.color}" 
@@ -89,9 +80,7 @@ class Image(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, db_index=True, related_name='images', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    class Meta:
-        verbose_name = 'image'
-        verbose_name_plural = 'images'  
+ 
 
     def __str__(self):
         return f"{self.image}"
@@ -100,9 +89,7 @@ class ColorImage(models.Model):
     color = models.ForeignKey(Color, on_delete=models.CASCADE, db_index=True, related_name='color_images', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    class Meta:
-        verbose_name = 'Color Image'
-        verbose_name_plural = 'Color Images'  
+ 
 
     def __str__(self):
         return f"{self.image}"

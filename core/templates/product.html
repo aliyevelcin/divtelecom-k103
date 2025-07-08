@@ -44,8 +44,8 @@
             {% if product.old_price > product.new_price %}
             <p class="card-price" style="height: 25px; font-size: 20px; margin-top: 20px;"> <span
                 style="font-size: 16px; color: gray; text-decoration: line-through; margin-right: 5px;">$ {{product.old_price}}</span>
-              ${{product.new_price}}</p>
-              <span>(-{{ product.discount_percent }}%)</span>
+              ${{product.new_price}}
+              <span style="color: yellowgreen;">(-{{ product.discount_percent }}%)</span > </p>
               {% else %}
                  <p class="card-price" style="height: 25px; font-size: 20px; margin-top: 20px;"> <span
                 style="font-size: 16px; color: gray; text-decoration: line-through; margin-right: 5px;">$ {{product.new_price}}</span>
@@ -92,6 +92,7 @@
         </div>
 
       </div> 
+
       <div class="specs-comment">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="" role="presentation" style="margin-right: 150px;">
@@ -297,6 +298,7 @@
       </div>
       
     </div>
+  </div>
   </div>
    
 

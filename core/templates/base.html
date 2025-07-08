@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
     <link rel="stylesheet" href="{% static 'css/mobile.css'%} ">
-    <link rel="stylesheet" href="{% static 'css/product.css'%}">
+    <link rel="stylesheet" href="{% static 'css/product.css'%}"> 
     <link rel="stylesheet" href="{% static 'css/list.css'%}">
     <link rel="stylesheet" href="{% static 'css/about-us.css'%}">
     <link rel="stylesheet" href="{% static 'css/register.css'%}">
@@ -31,6 +31,8 @@
 
     {% include 'includes/navbar.html' %}
     {% block content %}
+
+        <hr style="background-color: #38ff87; margin-bottom: 0;">
 
     {% endblock %}
     {% include 'includes/footer.html' %}
