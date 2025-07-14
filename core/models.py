@@ -1,4 +1,5 @@
 from django.db import models
+from accounts.models import User
 
 class Product(models.Model):
     model = models.CharField(max_length=100)
@@ -32,7 +33,15 @@ class Product(models.Model):
     def __str__(self):
         return self.model
     
-  
+class ProductComment(models.Model):
+    user = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE, null=True, blank=True)
+    text = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    product = models.ForeignKey('Product', related_name='comments', on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.text   
+
 class ProductVersion(models.Model):
     product = models.ForeignKey('Product',related_name='product_versions',on_delete=models.CASCADE,db_index=True,null=True,blank=True,related_query_name='product_version') #product = models.ForeingKey(Product, on_delete = models.CASCADE,db_index = True,null=True,blank=True)
     color = models.CharField(max_length=100)

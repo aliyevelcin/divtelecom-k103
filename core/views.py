@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from core.models import *
-
+from core.forms import *
 def home(request):
     products = Product.objects.all()
     context = {
@@ -11,8 +11,17 @@ def home(request):
 
 def product(request, id):
     product = Product.objects.get(id=id)
+    if request.method == "POST":
+        form = ProductCommentForm(request.POST)
+        comment = form.save()
+        comment.user = request.user
+        comment.product = Product.objects.get(id=id)
+        comment.save()
+        return redirect('core:product', id=id)
+    form = ProductCommentForm()
     context = {
-        'product': product
+        'product': product,
+        'form': form
     }
     return render(request, 'product.html', context)
 

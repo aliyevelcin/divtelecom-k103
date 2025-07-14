@@ -37,7 +37,7 @@
               <img src="https://muradaghazade.github.io/phones/img/star.svg" alt="">
               <img src="https://muradaghazade.github.io/phones/img/star2.svg" alt="">
               <span class="rating-span">(226)</span>
-              <span style="color: #2D9CDB; margin-left: 5px; font-size: 14px;">57 rəy</span>
+              <span style="color: #2D9CDB; margin-left: 5px; font-size: 14px;">{{product.comment.all_.counts}} rəy</span>
             </div>
           </div>
           <div class="price">
@@ -174,6 +174,7 @@
 
           </div>
           <div style="margin-top: 50px;" class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+         {% for comment in product.comments.all %}
             <div class="comment">
               <div class="container-fluid">
                 <div class="row">
@@ -192,11 +193,13 @@
                   <div class="col-md-9">
                     <div class="comment-body">
                       <div class="title-div">
-                        <h6 style="font-size: 20px;">Gunel Mammadova</h6>
-                        <span style="font-size: 12px;">5 gün əvvəl</span>
+                        <h6 style="font-size: 20px;">{{comment.user.first_name}} {{comment.user.last_name}}</h6>
+
+                        
+                        <span style="font-size: 12px;">{{comment.date}}</span>
                       </div>
-                      <span style="font-size: 12px;">Yaddaş - 128, Rəng - Mavi</span>
-                      <p style="margin-top: 15px; color: #4f4f4f;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente nesciunt excepturi sed non dolores vitae ex neque voluptatum officia facere nobis repudiandae ad, saepe quasi laudantium? Architecto dolor exercitationem id?</p>
+                      <span style="font-size: 12px;"></span>
+                      <p style="margin-top: 15px; color: #4f4f4f;"> {{comment.text}}</p>
                     </div>
                   </div>
                 </div>
@@ -205,92 +208,24 @@
   
                 
             </div> 
-            <div class="comment">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="comment-rating">
-                      <h1 class="value">4</h1>
-                      <div class="stars">
-                        <img src="https://muradaghazade.github.io/phones/img/star.svg" alt="">
-                        <img src="https://muradaghazade.github.io/phones/img/star.svg" alt="">
-                        <img src="https://muradaghazade.github.io/phones/img/star.svg" alt="">
-                        <img src="https://muradaghazade.github.io/phones/img/star.svg" alt="">
-                        <img src="https://muradaghazade.github.io/phones/img/star2.svg" alt="">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-9">
-                    <div class="comment-body">
-                      <div class="title-div">
-                        <h6 style="font-size: 20px;">Gunel Mammadova</h6>
-                        <span style="font-size: 12px;">5 gün əvvəl</span>
-                      </div>
-                      <span style="font-size: 12px;">Yaddaş - 128, Rəng - Mavi</span>
-                      <p style="margin-top: 15px; color: #4f4f4f;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente nesciunt excepturi sed non dolores vitae ex neque voluptatum officia facere nobis repudiandae ad, saepe quasi laudantium? Architecto dolor exercitationem id?</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>  
-            <div class="comment">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="comment-rating">
-                      <h1 class="value">4</h1>
-                      <div class="stars">
-                        <img src="https://muradaghazade.github.io/phones/img/star.svg" alt="">
-                        <img src="https://muradaghazade.github.io/phones/img/star.svg" alt="">
-                        <img src="https://muradaghazade.github.io/phones/img/star.svg" alt="">
-                        <img src="https://muradaghazade.github.io/phones/img/star.svg" alt="">
-                        <img src="https://muradaghazade.github.io/phones/img/star2.svg" alt="">
-                      </div>
-                    </div>
-                  </div>    
-                  <div class="col-md-9">
-                    <div class="comment-body">
-                      <div class="title-div">
-                        <h6 style="font-size: 20px;">Gunel Mammadova</h6>
-                        <span style="font-size: 12px;">5 gün əvvəl</span>
-                      </div>
-                      <span style="font-size: 12px;">Yaddaş - 128, Rəng - Mavi</span>
-                      <p style="margin-top: 15px; color: #4f4f4f;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente nesciunt excepturi sed non dolores vitae ex neque voluptatum officia facere nobis repudiandae ad, saepe quasi laudantium? Architecto dolor exercitationem id?</p>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
+           {% endfor %}
           <div class="comment-form">
             <h6 style="font-size: 20px; margin-bottom: 70px;">Rəy Bildir</h6>
-            <form action="" class="c-form">
-              <div class="first-last">
-                <div class="inp-div">
-                  <label for="firstname">Ad</label>
-                  <input class="inp" name="firstname" type="text" placeholder="Adınızı daxil edin">
-                </div>
-                <div class="inp-div">
-                  <label for="lastname">Soyad</label>
-                  <input class="inp" name="lastname" type="text" placeholder="Soyadınızı daxil edin">
-                </div>
-              </div>
+            <form action="" method="post" class="c-form">
+              {% csrf_token %}
               <div class="message-div">
                 <div class="m-l-div" style="text-align: left; width: 94%;">
                   <label for="message">Rəyinizi yazın</label>
                 </div>
-                <textarea placeholder="Rəyinizi buraya yazın" class="message-inp" name="message" id=""></textarea>
+                {{form.text}}
+                {{form.text.errors}}
               </div>
               <div class="btn-div">
+                {% if request.user.is_authenticated %}
                 <button class="comment-btn">Rəyini bildir</button>
+                {% else %}
+                <a href="{% url 'accounts:login' %}"><button class="comment-btn">Rəyini bildir</button></a>
+                {% endif %}
               </div>
             </form>
           </div>
