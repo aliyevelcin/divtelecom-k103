@@ -221,11 +221,9 @@
                 {{form.text.errors}}
               </div>
               <div class="btn-div">
-                {% if request.user.is_authenticated %}
-                <button class="comment-btn">Rəyini bildir</button>
-                {% else %}
-                <a href="{% url 'accounts:login' %}"><button class="comment-btn">Rəyini bildir</button></a>
-                {% endif %}
+                 
+                    <button class="comment-btn">Rəyini bildir</button>
+                 
               </div>
             </form>
           </div>

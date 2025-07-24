@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from core.models import *
 from core.forms import *
 def home(request):
-    products = Product.objects.all()
+    products = Product.objects.order_by('-id')
     context = {
         'products': products
     }
